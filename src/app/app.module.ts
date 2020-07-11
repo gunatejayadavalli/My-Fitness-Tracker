@@ -18,6 +18,8 @@ import {AuthModule} from './auth/auth.module';
 import {TrainingModule} from './training/training.module';
 import {SharedModule} from './shared/shared.module';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from './app.reducer';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     AuthModule,
     TrainingModule,
     SharedModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [AuthService, AuthGuard, TrainingService, UIService],
   bootstrap: [AppComponent]
